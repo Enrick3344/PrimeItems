@@ -24,10 +24,10 @@ class Main extends PluginBase{
 	public static $uis = [];
   
     public function onEnable(){
-        $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
-        PacketPool::registerPacket(new ModalFormRequestPacket());
-		    PacketPool::registerPacket(new ModalFormResponsePacket());
-		    $this->reloadUIs();
+            $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
+            PacketPool::registerPacket(new ModalFormRequestPacket());
+	    PacketPool::registerPacket(new ModalFormResponsePacket());
+	    $this->reloadUIs();
     }
     
     public function reloadUIs(){
