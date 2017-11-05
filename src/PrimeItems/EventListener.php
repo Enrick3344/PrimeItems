@@ -5,17 +5,13 @@ use pocketmine\item\Item;
 use pocketmine\Server;
 use pocketmine\Player;
 use pocketmine\plugin\Plugin;
-use pocketmine\command\ConsoleCommandSender;
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\utils\TextFormat;
 use pocketmine\event\Listener;
-use pocketmine\event\server\DataPacketReceiveEvent;
 use pocketmine\player\Inventory;
 use pocketmine\inventory\BaseInventory;
 use pocketmine\event\player\PlayerRespawnEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerInteractEvent;
+use pocketmine\event\player\PlayerExhaustEvent;
 use jojoe77777\FormAPI;
 use PrimeItems\Main;
 
@@ -36,6 +32,7 @@ class EventListener implements Listener {
         $inventory = $player->getInventory();
         $player->getInventory()->clearAll();
         $inventory->setItem(0, Item::get(Item::COMPASS)->setCustomName("§aServers" . "\n" . "§7Hit to open menu"));
+        $inventory->setItem(8, Item::get(Item::DYE, 10)->setCustomName("§dPlayer Visibility: §aOn"));
     }
 
     public function handleInteraction(PlayerInteractEvent $ev) {
@@ -45,6 +42,21 @@ class EventListener implements Listener {
         switch ($hand->getId()) {
             case Item::COMPASS:
                 $this->onServerMenu($player);
+            break;
+            case Item::DYE:
+                if ($hand->getDamage() === 10) {
+                    foreach ($player->getServer()->getOnlinePlayers() as $p) {
+                        $player->hidePlayer($p);
+                    }
+                    $inventory->setItemInHand(Item::get(Item::DYE, 8)->setCustomName("§dPlayer Visibility: §cOff"));
+                    $player->sendMessage("§cHiding all players!");
+                }elseif ($hand->getDamage() === 8) {
+                    foreach ($player->getServer()->getOnlinePlayers() as $p) {
+                        $player->showPlayer($p);
+                    }
+                    $inventory->setItemInHand(Item::get(Item::DYE, 10)->setCustomName("§dPlayer Visibility: §aOn"));
+                    $player->sendMessage("§aRevealing all players!");
+                }
             break;
         }
     }
@@ -89,5 +101,9 @@ class EventListener implements Listener {
         $form->addButton("Survival", 4, "https://i.imgur.com/G4YNcfX.jpg");
         $form->addButton("Creative", 5, "https://i.imgur.com/G4YNcfX.jpg");
         $form->sendToPlayer($player);
+    }
+
+    public function Hunger(PlayerExhaustEvent $event) {
+        $event->setCancelled(true);
     }
 }
