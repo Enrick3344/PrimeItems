@@ -35,9 +35,6 @@ class Main extends PluginBase{
         $button = new Button('Skyblocks');
         $button->addImage(Button::IMAGE_TYPE_URL, 'https://rx3jpw-dm2306.files.1drv.com/y4mUaFXVkso1vjImbApDJoRFp5Gwhi1Zq4PiJH0y0lmsaM0D1m3PTRvQQZjezmlUpUGd73foCJ0QHsw1o8-OYGtXZbu8WlmZ1Ke7JAfx_GXJ_EuFfWYPnm-GKAUsfPjem7Znf5j4Anf5C6i-U-K0dE4FW833I4bwUyqDtUHQde9aZ228s6HikoI1xN5yt5HtEZXZEPcjBZoQJDbtM_gctk510etJafc65n8JN7CgJoHw88/Logo2.jpg?psid=1');
         $ui->addButton($button);
-        $button1 = new Button('Skyblocks2');
-        $button1->addImage(Button::IMAGE_TYPE_URL, 'https://rx3jpw-dm2306.files.1drv.com/y4mUaFXVkso1vjImbApDJoRFp5Gwhi1Zq4PiJH0y0lmsaM0D1m3PTRvQQZjezmlUpUGd73foCJ0QHsw1o8-OYGtXZbu8WlmZ1Ke7JAfx_GXJ_EuFfWYPnm-GKAUsfPjem7Znf5j4Anf5C6i-U-K0dE4FW833I4bwUyqDtUHQde9aZ228s6HikoI1xN5yt5HtEZXZEPcjBZoQJDbtM_gctk510etJafc65n8JN7CgJoHw88/Logo2.jpg?psid=1');
-        $ui->addButton($button1);
         $button2 = new Button('Prison');
         $button2->addImage(Button::IMAGE_TYPE_URL, 'https://rx3jpw-dm2306.files.1drv.com/y4mUaFXVkso1vjImbApDJoRFp5Gwhi1Zq4PiJH0y0lmsaM0D1m3PTRvQQZjezmlUpUGd73foCJ0QHsw1o8-OYGtXZbu8WlmZ1Ke7JAfx_GXJ_EuFfWYPnm-GKAUsfPjem7Znf5j4Anf5C6i-U-K0dE4FW833I4bwUyqDtUHQde9aZ228s6HikoI1xN5yt5HtEZXZEPcjBZoQJDbtM_gctk510etJafc65n8JN7CgJoHw88/Logo2.jpg?psid=1');
         $ui->addButton($button2);
