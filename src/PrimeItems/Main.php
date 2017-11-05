@@ -2,6 +2,7 @@
 
 namespace PrimeItems;
 
+use pocketmine\plugin\PluginBase;
 use PrimeItems\EventListener;
 use pocketmine\item\Item;
 use pocketmine\Server;
