@@ -29,4 +29,8 @@ class ServerCommand extends Command{
         }
         $this->getListener()->onServerMenu($player);
     }
+    
+    public function getListener(){
+        return new EventListener($this->plugin);
+    }
 }
