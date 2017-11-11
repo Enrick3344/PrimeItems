@@ -27,10 +27,10 @@ class ServerCommand extends Command{
             $sender->sendMessage("§5>§c Please run this command in-game.");
             return true;
         }
-        $this->getListener()->onServerMenu($player);
+        $this->listener->onServerMenu($player);
     }
     
-    public function getListener(){
-        return EventListener;
+    public function getListener(): EventListener{
+        return $this->listener;
     }
 }
