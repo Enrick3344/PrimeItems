@@ -9,5 +9,5 @@ api:
 main: PrimeItems\Main
 
 permissions:
-  primeitems.servers:
+  primeitems.server:
     default: true
