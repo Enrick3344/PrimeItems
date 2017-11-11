@@ -31,6 +31,6 @@ class ServerCommand extends Command{
     }
     
     public function getListener(): EventListener{
-        return $this->listener;
+        return;
     }
 }
