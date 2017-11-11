@@ -10,4 +10,8 @@ class Main extends PluginBase{
         $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
         $this->getServer()->getCommandMap()->register("servers", new ServerCommand($this));
     }
+  
+    public function getListener(){
+        return new EventListener($this);
+    }
 }
